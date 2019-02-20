@@ -154,7 +154,7 @@ func (mt *MikrotikConfig) changeMikrotikIpsecPeer(oldIp string, newIp string) er
 	if err != nil {
 		return err
 	}
-	if reply.Re	!= nil {
+	if reply.Re != nil {
 		peerId := reply.Re[0].Map[".id"]
 
 		reply, err = client.Run("/ip/ipsec/peer/set", "=.id="+peerId, "=address="+newIp+"/32")
@@ -167,7 +167,7 @@ func (mt *MikrotikConfig) changeMikrotikIpsecPeer(oldIp string, newIp string) er
 	if err != nil {
 		return err
 	}
-	if reply.Re	!= nil {
+	if reply.Re != nil {
 		policyId := reply.Re[0].Map[".id"]
 
 		reply, err = client.Run("/ip/ipsec/policy/set", "=.id="+policyId, "=sa-dst-address="+newIp)

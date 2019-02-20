@@ -12,7 +12,7 @@ func main() {
 	if err := envdecode.StrictDecode(&cfg); err != nil {
 		log.Fatal(err)
 	}
-	
+
 	err := cfg.Scaleway.initScalewayAPI()
 	if err != nil {
 		log.Fatal(err)

@@ -130,7 +130,9 @@ func checkConnectivity(ip string) error {
 		case <-timeout:
 			return errors.New(fmt.Sprintf("connectivity check [%v]: timeout exceeded", ip))
 		case <-ticker:
-			if err := sendIcmpRequest(ip); err == nil { return nil }
+			if err := sendIcmpRequest(ip); err == nil {
+				return nil
+			}
 		}
 	}
 }
